@@ -1,0 +1,21 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const cajasControl_1 = __importDefault(require("../controllers/cajasControl"));
+const express_1 = require("express");
+const router = express_1.Router();
+router.put('/date', cajasControl_1.default.ModificarFecha);
+router.get('/', cajasControl_1.default.Consultar);
+router.get('/search/:letra', cajasControl_1.default.Buscar);
+router.get('/lastid', cajasControl_1.default.UltimaCaja);
+router.post('/', cajasControl_1.default.Agregar);
+router.put('/:id', cajasControl_1.default.Modificar);
+router.delete('/:id', cajasControl_1.default.Eliminar);
+router.put('/close/:id', cajasControl_1.default.Finalizar);
+router.put('/open/:id', cajasControl_1.default.Revertir);
+router.get('/totals/:id', cajasControl_1.default.ConsultarTotales);
+router.get('/comparative/:id', cajasControl_1.default.ConsultarComparativa);
+router.get('/details/:id', cajasControl_1.default.ConsultarDetalles);
+exports.default = router;
